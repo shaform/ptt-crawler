@@ -63,8 +63,14 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {'scrapy.pipelines.files.FilesPipeline': 1}
-FILES_STORE = 'images'
+ITEM_PIPELINES = {'ptt_beauty.pipelines.EncryptedFilesPipeline': 1}
+
+FILES_STORES = {
+    '': 'scrapy.pipelines.files.FSFilesStore',
+    'file': 'scrapy.pipelines.files.FSFilesStore',
+    's3': 'scrapy.pipelines.files.S3FilesStore',
+    'b2': 'ptt_beauty.pipelines.B2FilesStore',
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
