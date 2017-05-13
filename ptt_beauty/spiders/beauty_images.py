@@ -10,7 +10,7 @@ from ptt_beauty.items import PostItem
 
 class BeautyImagesSpider(scrapy.Spider):
     name = 'beauty_images'
-    allowed_domains = ['ptt.cc', 'imgur.com']
+    allowed_domains = ['ptt.cc']
     start_urls = ('https://www.ptt.cc/bbs/Beauty/index.html', )
 
     def __init__(self, max_pages=5, *args, **kwargs):
