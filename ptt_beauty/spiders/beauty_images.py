@@ -77,4 +77,11 @@ class BeautyImagesSpider(scrapy.Spider):
         item['score'] = total_score
         item['url'] = response.url
 
-        yield item
+        file_urls = response.xpath(
+            '//a[contains(@href, "imgur.com")]/@href').extract()
+        if file_urls:
+            file_urls = [url for url in file_urls if url.endswith('.jpg')]
+        if file_urls:
+            item['file_urls'] = file_urls
+
+            yield item
