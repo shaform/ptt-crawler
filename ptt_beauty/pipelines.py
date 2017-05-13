@@ -52,7 +52,7 @@ class B2FilesStore(object):
         self.c.upload(source, file_name)
 
     def persist_file(self, path, buf, info, meta=None, headers=None):
-        """Upload file to S3 storage"""
+        """Upload file to B2 storage"""
         key_name = '%s%s' % (self.prefix, path)
         buf.seek(0)
 
