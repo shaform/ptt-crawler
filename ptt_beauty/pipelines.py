@@ -30,15 +30,16 @@ class B2FilesStore(object):
     B2_APPLICATION_KEY = None
 
     def __init__(self, uri):
-        assert uri.startswith('b2://')
-        self.bucket, self.prefix = uri[5:].split('/', 1)
-
         try:
+            assert uri.startswith('b2://')
+            self.bucket, self.prefix = uri[5:].split('/', 1)
+
             self.api = B2Api()
             self.api.authorize_account('production', self.B2_ACCOUNT_ID,
                                        self.B2_APPLICATION_KEY)
             self.c = self._get_b2_bucket()
-        except Exception:
+        except (AssertionError, Exception) as e:
+            logger.exception(e)
             raise CloseSpider('could not initialize B2')
 
     def stat_file(self, path, info):
