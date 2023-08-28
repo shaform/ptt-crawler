@@ -1,1 +1,1 @@
-# ptt-beauty crawler
+# ptt crawler

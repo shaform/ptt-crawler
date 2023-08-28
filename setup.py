@@ -7,5 +7,5 @@ setup(
     version      = '1.0',
     packages     = find_packages(),
     scripts      = ['bin/upload_items.py'],
-    entry_points = {'scrapy': ['settings = ptt_beauty.settings']},
+    entry_points = {'scrapy': ['settings = ptt_crawler.settings']},
 )

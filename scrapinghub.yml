@@ -1,5 +1,5 @@
 projects:
   default: <SHUB_PROJECT_ID>
 stacks:
-    default: scrapy:1.3-py3
+    default: scrapy:2.10-py3
 requirements_file: requirements.txt
